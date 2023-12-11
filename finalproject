@@ -1,0 +1,1839 @@
+/* Assignemnt Description: The user will input the major they plan to pursue once they transfer from the College of Dupage.They will also be able to input what they prioritize along with their GPA.
+The Program will output the best University it determines for the user.
+
+Assignment Name: Final Project
+
+Student Name: Bisma Khan
+
+*/
+
+//Program headers
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <cctype>
+using namespace std;
+
+//Functions
+void intro();
+void choose_important();
+void choose_major();
+
+//Main Function
+int main()
+{
+	string uni = "\nThe Best University for You is: ";
+	string tuit = "\nThe Out-of-State Tution For your University is Approximately: $ ";
+	string inTuit = "\nThe In-State Tution For your University is Approximately: $ ";
+	string ntuit = "\n No Tuition Will Be Provided";
+	int major;
+	int imp;
+	float gpa;
+	int state;
+	char tuition;
+	typedef enum { AL, AK, AZ, AR, CA, CO, CT, DE, FL, GA, HI, ID, IL, IN, IA, KS, KY, LA, ME, MD, MA, MI, MN, MS, MO, MT, NE, NV, NH, NJ, NM, NY, NC, ND, OH, OK, OR, PA, RI, SC, SD, TN, TX, UT, VT, VA, WA, WV, WI, WY } names;
+	typedef enum { Agriculture, Architecture, Arts, Business, Communications, ComputerScience, Education, Engineering, Religion, Science, SocialScience } majors;
+	typedef enum { Campus, Size, Professors, Fees, CampusLife, Diversity } priorities;
+
+	intro();
+	cin >> state;
+	choose_major();
+	cin >> major;
+
+	if (Agriculture == major)
+		cout << "You picked Agriculture" << endl;
+	else if (Architecture == major)
+		cout << "You picked Architecture" << endl;
+	else if (Arts == major)
+		cout << "You picked Arts" << endl;
+	else if (Business == major)
+		cout << "You picked Business" << endl;
+	else if (Communications == major)
+		cout << "You picked Communications" << endl;
+	else if (ComputerScience == major)
+		cout << "You picked Computer Science" << endl;
+	else if (Education == major)
+		cout << "You picked Education" << endl;
+	else if (Engineering == major)
+		cout << "You picked Engineering" << endl;
+	else if (Religion == major)
+		cout << "You picked Religion" << endl;
+	else if (Science == major)
+		cout << "You picked Science" << endl;
+	else if (SocialScience == major)
+		cout << "You picked Social Science" << endl;
+	else {
+		cout << "Invalid Input. Pleas Try Again." << endl;
+		exit(0);
+	}
+
+	choose_important();
+	cin >> imp;
+	if (imp == Campus)
+		cout << "You picked Campus" << endl;
+	else if (imp == Size)
+		cout << "You picked Class Size" << endl;
+	else if (imp == Professors)
+		cout << "You picked Professors" << endl;
+	else if (imp == Fees)
+		cout << "You picked Cheap Tuition" << endl;
+	else if (imp == CampusLife)
+		cout << "You picked Campus Life" << endl;
+	else if (imp == Diversity)
+		cout << "You picked Diversity" << endl;
+	else {
+		cout << "Invalid Input. Please Try Again" << endl;
+		exit(0);
+	}
+
+	cout << endl;
+	cout << "What is your GPA? (Out of 4.0): ";
+	cin >> gpa;
+	if (gpa > 4.0 || gpa < 0)
+	{
+		cout << "Invalid Input. Please Try Again." << endl;
+		exit(0);
+	}
+	else
+		cout << "Your GPA is " << fixed << setprecision(2) << gpa << endl;
+
+	cout << "\nWould You like the program to output the tuition for your University (Y/N)? ";
+	cin >> tuition;
+	cout << endl;
+	tuition = toupper(tuition);
+
+	switch (state)
+	{
+	case AL:
+		if ((gpa >= 3.00) && (major == 3 || major == 7 || major == 4 || major == 6 || major == 9) && (imp == 0 || imp == 1 || imp == 2))
+		{
+			cout << uni << "Alabama State University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "19,396";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+
+		}
+		else if ((gpa >= 3.4) && (major == 3 || major == 9 || major == 7 || major == 1 || major == 5 || major == 4 || major == 10) && (imp == 0 || imp == 3 || imp == 4))
+		{
+			cout << uni << "Auburn University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "31,986";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.0) && (major == 9 || major == 3 || major == 4 || major == 6 || major == 8) && (imp == 1))
+		{
+			cout << uni << "Samford University " << endl;
+			if (tuition == 'Y')
+				cout << tuit << "35,360";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case AK:
+		if ((gpa >= 2.5) && (major == 3 || major == 8 || major == 10 || major == 7 || major == 9 || major == 5) && (imp == 0 || imp == 3 || imp == 2))
+		{
+			cout << uni << "University of Alaska Fairbanks" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "45";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.22) && (major == 3 || major == 9 || major == 2) && (imp == 1))
+		{
+			cout << uni << "Alaska Pacific University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "20,760";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.94) && (major == 10 || major == 9 || major == 3) && (imp == 3))
+		{
+			cout << uni << "University of Alaska Southeast" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "21,096";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case AZ:
+		if ((gpa >= 3.00) && (major == 3 || major == 7 || major == 4 || major == 5 || major == 9 || major == 6) && (imp == 1 || imp == 3 || imp == 2 || imp == 0 || imp == 4 || imp == 5))
+		{
+			cout << uni << "The University of Arizona " << endl;
+			if (tuition == 'Y')
+				cout << tuit << "37,258";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.00) && (major == 3 || major == 9 || major == 5 || major == 7 || major == 10 || major == 2) && (imp == 0 || imp == 2 || imp == 3 || imp == 4 || imp == 5))
+		{
+			cout << uni << "Arizona State University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "29,438";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.7) && (major == 7 || major == 5 || major == 3 || major == 9) && (imp == 2))
+		{
+			cout << uni << "Embry-Riddle Aeronautical University, Prescott" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "38,966";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case AR:
+		if ((gpa >= 3.2) && (major == 3 || major == 7 || major == 4 || major == 6 || major == 9) && (imp == 3 || imp == 1 || imp == 2 || imp == 0 || imp == 4))
+		{
+			cout << uni << "University of Arkansas" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "26,390";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.2) && (major == 9 || major == 4 || major == 8 || major == 6 || major == 2 || major == 10) && (imp == 1))
+		{
+			cout << uni << "Ouachita Baptist University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "30,140";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.93) && (major == 10 || major == 9 || major == 5 || major == 2 || major == 8) && (imp == 1))
+		{
+			cout << uni << "Hendrix College" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "33,350";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case CA:
+	{if ((gpa >= 3.96) && (major == 3 || major == 7 || major == 9) && (imp == 1 || imp == 2 || imp == 0 || imp == 3 || imp == 4 || imp == 5))
+	{
+		cout << uni << "Stanford University" << endl;
+		if (tuition == 'Y')
+			cout << tuit << "56,169";
+		else if (tuition == 'N')
+			cout << ntuit;
+		else
+			cout << "Invalid Input";
+	}
+	else if ((gpa >= 3.5) && (major == 5 || major == 7 || major == 9 || major == 3) && (imp == 2))
+	{
+		cout << uni << "California Institute of Technology" << endl;
+		if (tuition == 'Y')
+			cout << tuit << "58,680";
+		else if (tuition == 'N')
+			cout << ntuit;
+		else
+			cout << "Invalid Input";
+	}
+	else if ((gpa >= 3.79) && (major == 3 || major == 4 || major == 5 || major == 9 || major == 7 || major == 2 || major == 10) && (imp == 0 || imp == 2))
+	{
+		cout << uni << "University of Southern California " << endl;
+		if (tuition == 'Y')
+			cout << tuit << "61,503";
+		else if (tuition == 'N')
+			cout << ntuit;
+		else
+			cout << "Invalid Input";
+	}
+	else
+		cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+	break;
+	case CO:
+		if ((gpa >= 3.00) && (major == 3 || major == 7 || major == 4 || major == 10 || major == 9) && (imp == 3 || imp == 1 || imp == 2 || imp == 0 || imp == 4))
+		{
+			cout << uni << "University of Colorado, Boulder" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "38,314";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.72) && (major == 3 || major == 4 || major == 5 || major == 10 || major == 7) && (imp == 1))
+		{
+			cout << uni << "University of Denver" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "54,819";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.00) && (major == 3 || major == 4 || major == 7 || major == 5 || major == 10 || major == 2) && (imp == 2 || imp == 3 || imp == 4))
+		{
+			cout << uni << "Colorado State University " << endl;
+			if (tuition == 'Y')
+				cout << tuit << "31,613";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case CT: cout << "You picked Connecticut" << endl;
+		if ((gpa >= 4) && (major == 3 || major == 9 || major == 5 || major == 10 || major == 7 || major == 0 || major == 2) && (imp == 0 || imp == 2 || imp == 4 || imp == 5))
+		{
+			cout << uni << " Yale University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "59,950";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3) && (major == 3 || major == 7 || major == 9 || major == 10 || major == 5 || major == 2) && (imp == 3 || imp == 5))
+		{
+			cout << uni << "University of Connecticut" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "41,192";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.91) && (major == 2 || major == 5 || major == 10 || major == 3 || major == 9 || major == 8) && (imp == 2 || imp == 5))
+		{
+			cout << uni << "Wesleyan University " << endl;
+			if (tuition == 'Y')
+				cout << tuit << "62,049";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case DE:
+		if ((gpa >= 3.77) && (major == 3 || major == 9 || major == 4 || major == 10 || major == 7 || major == 0) && (imp == 3 || imp == 4))
+		{
+			cout << uni << "University of Delaware" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "36,880";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.25) && (major == 10 || major == 3 || major == 9 || major == 0 || major == 6 || major == 5 || major == 7) && (imp == 3))
+		{
+			cout << uni << "Delaware State University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "18,280";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.9) && (major == 3 || major == 10 || major == 4) && (imp == 1))
+		{
+			cout << uni << "Goldey-Beacom College" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "12,750";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case FL:
+		if ((gpa >= 3.00) && (major == 10 || major == 9 || major == 7 || major == 3 || major == 5 || major == 1) && (imp == 0 || imp == 2 || imp == 3 || imp == 4))
+		{
+			cout << uni << "University of Florida" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "28,659";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.5) && (major == 10 || major == 3 || major == 9 || major == 5 || major == 2 || major == 0) && (imp == 0 || imp == 2 || imp == 3 || imp == 4))
+		{
+			cout << uni << "Florida State University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "18,786";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.5) && (major == 9 || major == 3 || major == 5 || major == 1 || major == 4) && (imp == 0 || imp == 2 || imp == 4 || imp == 5))
+		{
+			cout << uni << "University of Miami " << endl;
+			if (tuition == 'Y')
+				cout << tuit << "54,760";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case GA:
+		if ((gpa >= 3.78) && (major == 9 || major == 5 || major == 3 || major == 10 || major == 2) && (imp == 0 || imp == 2 || imp == 5))
+		{
+			cout << uni << "Emory University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "55,468";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.8) && (major == 5 || major == 7 || major == 9 || major == 10) && (imp == 2 || imp == 4 || imp == 5))
+		{
+			cout << uni << "Georgia Institute of Technology" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "33,964";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3) && (major == 10 || major == 5 || major == 9 || major == 3 || major == 2 || major == 4) && (imp == 3 || imp == 5))
+		{
+			cout << uni << "Georgia State University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "24,517";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case HI:
+		if ((gpa >= 3.00) && (major == 10 || major == 4 || major == 9 || major == 3 || major == 2 || major == 5 || major == 7 || major == 6) && (imp == 2 || imp == 3 || imp == 5))
+		{
+			cout << uni << "University of Hawai'i at Mañoa" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "34,218";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3) && (major == 3 || major == 9 || major == 10 || major == 5 || major == 2 || major == 6) && (imp == 5))
+		{
+			cout << uni << "Brigham Young University–Hawaii" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "6,068";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.75) && (major == 9 || major == 3 || major == 10 || major == 5 || major == 4 || major == 6 || major == 2) && (imp == 5))
+		{
+			cout << uni << "Hawaii Pacific University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "30,020";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case ID:
+		if ((gpa >= 2.3) && (major == 10 || major == 7 || major == 3 || major == 1 || major == 6 || major == 5) && (imp == 2 || imp == 3))
+		{
+			cout << uni << "University of Idaho" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "27,576";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.66) && (major == 3 || major == 10 || major == 9 || major == 6 || major == 2 || major == 8) && (imp == 1))
+		{
+			cout << uni << "The College of Idaho" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "33,755";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.59) && (major == 9 || major == 5 || major == 10 || major == 5 || major == 7 || major == 8 || major == 6 || major == 4) && (imp == 1))
+		{
+			cout << uni << "Northwest Nazarene University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "34,390";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case IL:
+		if ((gpa >= 4) && (major == 3 || major == 7 || major == 4 || major == 5 || major == 9) && (imp == 0 || imp == 1 || imp == 2 || imp == 5))
+		{
+			cout << uni << "University of Chicago" << endl;
+			if (tuition == 'Y')
+				cout << inTuit << "62,241";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.5) && (major == 3 || major == 7 || major == 4 || major == 5 || major == 9) && (imp == 3 || imp == 1 || imp == 2 || imp == 5 || imp == 4 || imp == 0))
+		{
+			cout << uni << "University of Illinois at Chicago" << endl;
+			if (tuition == 'Y')
+				cout << inTuit << "14,126";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.5) && (major == 0 || major == 3 || major == 2 || major == 10 || major == 9 || major == 4) && (imp == 3 || imp == 1 || imp == 2 || imp == 5 || imp == 4))
+		{
+			cout << uni << "Illinois State University" << endl;
+			if (tuition == 'Y')
+				cout << inTuit << "15,319";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.5) && (major == 5 || major == 3 || major == 9 || major == 1 || major == 9 || major == 4) && (imp == 1 || imp == 2 || imp == 5 || imp == 4 || imp == 0))
+		{
+			cout << uni << "Illinois Institute of Technology" << endl;
+			if (tuition == 'Y')
+				cout << inTuit << "50,490";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case IN:
+		if ((gpa >= 2.5) && (major == 3 || major == 7 || major == 10 || major == 5 || major == 2 || major == 1 || major == 9) && (imp == 0 || imp == 2 || imp == 4))
+		{
+			cout << uni << "University of Notre Dame" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "58,843";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3) && (major == 5 || major == 7 || major == 10 || major == 4 || major == 1 || major == 9) && (imp == 2 || imp == 3 || imp == 4))
+		{
+			cout << uni << "Purdue University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << " 28,794";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 4) && (major == 7 || major == 5 || major == 9 || major == 3) && (imp == 4))
+		{
+			cout << uni << "Rose-Hulman Institute of Technology" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "53,019";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case IA:
+		if ((gpa >= 3.8) && (major == 3 || major == 10 || major == 9 || major == 2 || major == 4 || major == 7 || major == 6) && (imp == 0 || imp == 2 || imp == 3 || imp == 4))
+		{
+			cout << uni << "University of Iowa" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "31,905";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 4) && (major == 5 || major == 3 || major == 10 || major == 2 || major == 8) && (imp == 2 || imp == 5))
+		{
+			cout << uni << "Grinnell College" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "58,648";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.68) && (major == 7 || major == 3 || major == 9 || major == 6 || major == 5 || major == 0) && (imp == 0 || imp == 2 || imp == 3 || imp == 4))
+		{
+			cout << uni << "Iowa State University " << endl;
+			if (tuition == 'Y')
+				cout << tuit << "25,446";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case KS:
+		if ((gpa >= 3.25) && (major == 3 || major == 7 || major == 4 || major == 6 || major == 9) && (imp == 0 || imp == 1 || imp == 2 || imp == 3 || imp == 4))
+		{
+			cout << uni << "University of Kansas" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "28,034";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.25) && (major == 9 || major == 7 || major == 3 || major == 6 || major == 10 || major == 1 || major == 0) && (imp == 0 || imp == 3 || imp == 4))
+		{
+			cout << uni << "Kansas State University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "26,491";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.0) && (major == 9 || major == 10 || major == 6 || major == 3 || major == 7 || major == 5) && (imp == 3))
+		{
+			cout << uni << "Pittsburg State University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "19,088";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case KY:
+		if ((gpa >= 2.8) && (major == 9 || major == 10 || major == 4 || major == 3 || major == 5 || major == 6 || major == 2 || major == 7) && (imp == 3 || imp == 4))
+		{
+			cout << uni << "University of Louisville" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "28,716";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3) && (major == 3 || major == 5 || major == 10 || major == 7 || major == 2 || major == 0 || major == 9 || major == 8) && (imp == 1))
+		{
+			cout << uni << "Berea College" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "43,612";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.0) && (major == 3 || major == 9 || major == 10 || major == 4 || major == 7 || major == 5 || major == 6) && (imp == 0 || imp == 2 || imp == 3 || imp == 4))
+		{
+			cout << uni << "University of Kentucky" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "31,608";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case LA:
+		if ((gpa >= 3.56) && (major == 3 || major == 10 || major == 9 || major == 4 || major == 5 || major == 2 || major == 1) && (imp == 2 || imp == 4))
+		{
+			cout << uni << "Tulane University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "60,814";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.43) && (major == 9 || major == 3 || major == 10 || major == 7 || major == 5 || major == 2 || major == 4 || major == 0) && (imp == 3 || imp == 4))
+		{
+			cout << uni << "Louisiana State University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "28,635";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.5) && (major == 9 || major == 7 || major == 3 || major == 5 || major == 10 || major == 1 || major == 6) && (imp == 3))
+		{
+			cout << uni << "Louisiana Tech University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "16,806";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case ME:
+		if ((gpa >= 3.93) && (major == 10 || major == 3 || major == 9 || major == 5 || major == 6 || major == 8 || major == 2) && (imp == 0 || imp == 2 || imp == 4 || imp == 5))
+		{
+			cout << uni << "Bowdoin College" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "58,322";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.0) && (major == 3 || major == 7 || major == 9 || major == 6 || major == 4) && (imp == 2))
+		{
+			cout << uni << "University of Maine" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "33,586";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.98) && (major == 10 || major == 3 || major == 5 || major == 2 || major == 8) && (imp == 1))
+		{
+			cout << uni << "Colby College" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "61,220";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case MD:
+		if ((gpa >= 3.92) && (major == 9 || major == 5 || major == 10 || major == 3 || major == 7) && (imp == 0 || imp == 2 || imp == 5))
+		{
+			cout << uni << "Johns Hopkins University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "58,720";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 4) && (major == 5 || major == 9 || major == 7 || major == 4 || major == 10 || major == 0 || major == 6 || major == 2) && (imp == 3 || imp == 4 || imp == 5))
+		{
+			cout << uni << "University of Maryland" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "38,636";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.42) && (major == 3 || major == 10 || major == 4 || major == 7 || major == 6 || major == 5 || major == 2 || major == 8) && (imp == 0))
+		{
+			cout << uni << "Loyola University Maryland" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "53,530";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case MA:
+		if ((gpa >= 4) && (major == 10 || major == 3 || major == 5 || major == 9 || major == 2 || major == 8) && (imp == 0 || imp == 2 || imp == 4 || imp == 5))
+		{
+			cout << uni << "Harvard University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "55,587";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.8) && (major == 5 || major == 7 || major == 9 || major == 2 || major == 1 || major == 4) && (imp == 2 || imp == 4 || imp == 5))
+		{
+			cout << uni << "Massachusetts Institute of Technology" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "55,878";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.98) && (major == 5 || major == 3 || major == 9 || major == 10 || major == 7 || major == 2 || major == 1 || major == 8) && (imp == 4 || imp == 5))
+		{
+			cout << uni << "Tufts University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "63,000";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case MI:
+		if ((gpa >= 2.7) && (major == 5 || major == 3 || major == 9 || major == 4 || major == 7 || major == 2 || major == 1) && (imp == 0 || imp == 2 || imp == 3 || imp == 4 || imp == 5))
+		{
+			cout << uni << "University of Michigan" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "53,232";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.7) && (major == 3 || major == 4 || major == 10 || major == 9 || major == 5 || major == 6 || major == 7 || major == 0 || major == 2) && (imp == 0 || imp == 2 || imp == 3 || imp == 4))
+		{
+			cout << uni << "Michigan State University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "40,562";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.72) && (major == 7 || major == 5 || major == 9 || major == 2 || major == 10) && (imp == 2 || imp == 3))
+		{
+			cout << uni << "Michigan Technological University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "38,112";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case MN:
+		if ((gpa >= 2.8) && (major == 10 || major == 3 || major == 5 || major == 9 || major == 1 || major == 7 || major == 6 || major == 2) && (imp == 3 || imp == 4))
+		{
+			cout << uni << "University of Minnesota" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "33,818";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 4) && (major == 5 || major == 9 || major == 10 || major == 2 || major == 8) && (imp == 1))
+		{
+			cout << uni << "Carleton College" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "60,225";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.94) && (major == 3 || major == 9 || major == 5 || major == 4 || major == 8 || major == 2) && (imp == 1))
+		{
+			cout << uni << "Macalester College" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "60,518";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case MS:
+		if ((gpa >= 3.20) && (major == 10 || major == 4 || major == 3 || major == 9 || major == 6 || major == 7) && (imp == 0 || imp == 3 || imp == 4))
+		{
+			cout << uni << "University of Mississippi" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "25,886";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.2) && (major == 3 || major == 6 || major == 4 || major == 9 || major == 7 || major == 5 || major == 10 || major == 1 || major == 0 || major == 2) && (imp == 0 || imp == 3 || imp == 4))
+		{
+			cout << uni << "Mississippi State University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "24,900";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.65) && (major == 3 || major == 9 || major == 10 || major == 4 || major == 2 || major == 6 || major == 8) && (imp == 1))
+		{
+			cout << uni << "Millsaps College" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "42,960";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case MO:
+		if ((gpa >= 3.50) && (major == 5 || major == 9 || major == 7 || major == 3 || major == 10 || major == 1 || major == 2) && (imp == 2 || imp == 4 || imp == 5))
+		{
+			cout << uni << "Washington University in St. Louis" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "58,866";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3) && (major == 3 || major == 10 || major == 4 || major == 9 || major == 7 || major == 6 || major == 5 || major == 0 || major == 2) && (imp == 0 || imp == 2 || imp == 3 || imp == 4))
+		{
+			cout << uni << "University of Missouri" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "30,450 ";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.9) && (major == 9 || major == 10 || major == 3 || major == 4 || major == 5 || major == 6 || major == 2 || major == 8) && (imp == 1))
+		{
+			cout << uni << "Saint Louis University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "48,824";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case MT:
+		if ((gpa >= 3.25) && (major == 3 || major == 9 || major == 2 || major == 7 || major == 10 || major == 5 || major == 6 || major == 1) && (imp == 3))
+		{
+			cout << uni << "Montana State University - Bozeman" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "28,264 ";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.5) && (major == 9 || major == 10 || major == 3 || major == 10 || major == 6) && (imp == 1))
+		{
+			cout << uni << "Carroll College" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "45";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.5) && (major == 7 || major == 9 || major == 3 || major == 10) && (imp == 3))
+		{
+			cout << uni << "Montana Technical University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "22,570";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case NE:
+		if ((gpa >= 3.00) && (major == 3 || major == 10 || major == 4 || major == 6 || major == 7 || major == 5) && (imp == 0 || imp == 3 || imp == 4))
+		{
+			cout << uni << "University of Nebraska Lincoln" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "27,002";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.1) && (major == 9 || major == 3 || major == 10 || major == 5 || major == 6 || major == 2) && (imp == 1))
+		{
+			cout << uni << "Creighton University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "44,524";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3) && (major == 9 || major == 2 || major == 10 || major == 4 || major == 6 || major == 3) && (imp == 2))
+		{
+			cout << uni << "Nebraska Wesleyan University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "38,334";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case NV:
+		if ((gpa >= 3.00) && (major == 10 || major == 4 || major == 9 || major == 5) && (imp == 3 || imp == 5))
+		{
+			cout << uni << "University of Nevada Las Vegas" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "24,828";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3) && (major == 9 || major == 10 || major == 3 || major == 5 || major == 7 || major == 6 || major == 2 || major == 0) && (imp == 3))
+		{
+			cout << uni << "University of Nevada, Reno" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "24,680";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.5) && (major == 9 || major == 10 || major == 3 || major == 6 || major == 4 || major == 5) && (imp == 3))
+		{
+			cout << uni << "Nevada State College" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "19,440";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case NH:
+		if ((gpa >= 4.00) && (major == 3 || major == 5 || major == 7 || major == 10 || major == 2 || major == 8 || major == 9) && (imp == 2 || imp == 4 || imp == 5))
+		{
+			cout << uni << "Dartmouth College" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "60,870";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.5) && (major == 3 || major == 10 || major == 9 || major == 7 || major == 5 || major == 4 || major == 2) && (imp == 0 || imp == 3 || imp == 4))
+		{
+			cout << uni << "University of New Hampshire" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "37,202";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.28) && (major == 9 || major == 3 || major == 4 || major == 5 || major == 6 || major == 7) && (imp == 1))
+		{
+			cout << uni << "Saint Anselm College" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "43,910 ";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case NJ:
+		if ((gpa >= 3.9) && (major == 5 || major == 10 || major == 7 || major == 2 || major == 1 || major == 8) && (imp == 0 || imp == 2 || imp == 4 || imp == 5))
+		{
+			cout << uni << "Princeton University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "56,010";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.75) && (major == 5 || major == 10 || major == 9 || major == 3 || major == 7 || major == 2 || major == 4) && (imp == 2 || imp == 3 || imp == 4 || imp == 5))
+		{
+			cout << uni << "Rutgers University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "33,005";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.66) && (major == 3 || major == 9 || major == 10 || major == 4 || major == 5 || major == 7 || major == 2) && (imp == 3))
+		{
+			cout << uni << "The College of New Jersey" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "29,594";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case NM:
+		if ((gpa >= 3.44) && (major == 3 || major == 10 || major == 9 || major == 4 || major == 6 || major == 7 || major == 1 || major == 5) && (imp == 2 || imp == 3))
+		{
+			cout << uni << "University of New Mexico" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "25,243";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.5) && (major == 7 || major == 5 || major == 9) && (imp == 2 || imp == 3))
+		{
+			cout << uni << "New Mexico Tech" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "24,254";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.5) && (major == 2 || major == 3 || major == 10 || major == 9 || major == 6 || major == 7 || major == 5 || major == 0) && (imp == 3))
+		{
+			cout << uni << "Eastern New Mexico University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "8,688";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case NY:
+		if ((gpa >= 4.00) && (major == 5 || major == 3 || major == 2 || major == 9 || major == 1 || major == 8) && (imp == 0 || imp == 2 || imp == 4 || imp == 5))
+		{
+			cout << uni << "Columbia University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "63,530";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 4) && (major == 5 || major == 9 || major == 3 || major == 1 || major == 7 || major == 4 || major == 10 || major == 2) && (imp == 0 || imp == 2 || imp == 4 || imp == 5))
+		{
+			cout << uni << "Cornell University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "61,015";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.7) && (major == 2 || major == 9 || major == 5 || major == 3 || major == 4 || major == 6 || major == 7 || major == 10) && (imp == 2 || imp == 4 || imp == 5))
+		{
+			cout << uni << "New York University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "56,500";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case NC:
+		if ((gpa >= 4.00) && (major == 5 || major == 9 || major == 3 || major == 10 || major == 7 || major == 8 || major == 2) && (imp == 0 || imp == 2 || imp == 4 || imp == 5))
+		{
+			cout << uni << "Duke University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "60,244";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.5) && (major == 9 || major == 4 || major == 5 || major == 3 || major == 10 || major == 8 || major == 2) && (imp == 0 || imp == 2 || imp == 3 || imp == 4))
+		{
+			cout << uni << "University of North Carolina at Chapel Hill" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "36,891";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.9) && (major == 4 || major == 3 || major == 10 || major == 7 || major == 5 || major == 2 || major == 8) && (imp == 2 || imp == 4))
+		{
+			cout << uni << "Wake Forest University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "59,770";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case ND:
+		if ((gpa >= 2.75) && (major == 5 || major == 10 || major == 9 || major == 7 || major == 3 || major == 4 || major == 6 || major == 2) && (imp == 3))
+		{
+			cout << uni << "University of North Dakota" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "15,037";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.75) && (major == 3 || major == 4 || major == 10 || major == 7 || major == 6 || major == 9 || major == 5 || major == 1) && (imp == 3 || imp == 4))
+		{
+			cout << uni << "North Dakota State University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "15,076";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.75) && (major == 10 || major == 9 || major == 3 || major == 6 || major == 4 || major == 2) && (imp == 3))
+		{
+			cout << uni << "Minot State University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "8,164";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case OH:
+		if ((gpa >= 4.00) && (major == 5 || major == 7 || major == 9 || major == 10 || major == 3 || major == 4 || major == 2 || major == 8) && (imp == 2 || imp == 0 || imp == 5))
+		{
+			cout << uni << "Case Western Reserve University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "54,532";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3) && (major == 5 || major == 7 || major == 9 || major == 10 || major == 3 || major == 4 || major == 2 || major == 8 || major == 0 || major == 1) && (imp == 0 || imp == 2 || imp == 3 || imp == 4))
+		{
+			cout << uni << "Ohio State University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "35,019";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 4) && (major == 10 || major == 3 || major == 9 || major == 4) && (imp == 1))
+		{
+			cout << uni << "Kenyon College" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "63,310";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case OK:
+		if ((gpa >= 3.2) && (major == 3 || major == 7 || major == 4 || major == 10 || major == 9 || major == 2) && (imp == 0 || imp == 3 || imp == 4))
+		{
+			cout << uni << "University of Oklahoma" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "27,816";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3) && (major == 3 || major == 9 || major == 5 || major == 10 || major == 7 || major == 2 || major == 6) && (imp == 2))
+		{
+			cout << uni << "University of Tulsa" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "45,673";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3) && (major == 3 || major == 7 || major == 0 || major == 5 || major == 10 || major == 6 || major == 2) && (imp == 0 || imp == 2 || imp == 3 || imp == 4))
+		{
+			cout << uni << "Oklahoma State University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "24,764";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case OR:
+		if ((gpa >= 3.5) && (major == 3 || major == 10 || major == 4 || major == 6 || major == 2 || major == 1 || major == 5 || major == 9) && (imp == 0 || imp == 2 || imp == 3 || imp == 4))
+		{
+			cout << uni << "University of Oregon" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "40,464";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.9) && (major == 10 || major == 9 || major == 8 || major == 2 || major == 3) && (imp == 2))
+		{
+			cout << uni << "Reed College" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "62,730";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.6) && (major == 9 || major == 7 || major == 5 || major == 3 || major == 4 || major == 10 || major == 2 || major == 6) && (imp == 4))
+		{
+			cout << uni << "University of Portland" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "49,864";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case PA:
+		if ((gpa >= 3.9) && (major == 3 || major == 9 || major == 5 || major == 10 || major == 7 || major == 2 || major == 1 || major == 4) && (imp == 0 || imp == 2 || imp == 4 || imp == 5))
+		{
+			cout << uni << "University of Pennsylvania" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "61,710";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.84) && (major == 5 || major == 7 || major == 3 || major == 9 || major == 2 || major == 10 || major == 4 || major == 1) && (imp == 5 || imp == 1 || imp == 2))
+		{
+			cout << uni << "Carnegie Mellon University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "58,924";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 4) && (major == 9 || major == 5 || major == 3 || major == 2 || major == 8 || major == 10) && (imp == 2 || imp == 5))
+		{
+			cout << uni << "Haverford College" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "61,210";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case RI:
+		if ((gpa >= 4.00) && (major == 5 || major == 3 || major == 9 || major == 7 || major == 10 || major == 6 || major == 2 || major == 8 || major == 1) && (imp == 0 || imp == 2 || imp == 4 || imp == 5))
+		{
+			cout << uni << "Brown University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "62,304";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.8) && (major == 9 || major == 4 || major == 10 || major == 5 || major == 6 || major == 7 || major == 2) && (imp == 3))
+		{
+			cout << uni << "University of Rhode Island" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "33,354";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.48) && (major == 3 || major == 9 || major == 10 || major == 5 || major == 7 || major == 2 || major == 4) && (imp == 1))
+		{
+			cout << uni << "Providence College" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "55,988";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case SC:
+		if ((gpa >= 2) && (major == 3 || major == 5 || major == 10 || major == 7 || major == 2 || major == 4 || major == 8) && (imp == 0 || imp == 3 || imp == 4))
+		{
+			cout << uni << "University of South Carolina" << endl;
+			if (tuition == 'Y')
+				cout << tuit << " 33,928";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.3) && (major == 3 || major == 10 || major == 7 || major == 1 || major == 5 || major == 0 || major == 4 || major == 2 || major == 8) && (imp == 2 || imp == 0 || imp == 3 || imp == 4))
+		{
+			cout << uni << "Clemson University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "38,550";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.75) && (major == 10 || major == 4 || major == 3 || major == 5 || major == 8 || major == 2 || major == 6) && (imp == 0 || imp == 2))
+		{
+			cout << uni << "Furman University " << endl;
+			if (tuition == 'Y')
+				cout << tuit << "53,372";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case SD:
+		if ((gpa >= 3.00) && (major == 9 || major == 3 || major == 6 || major == 10 || major == 5 || major == 8 || major == 2 || major == 4) && (imp == 1))
+		{
+			cout << uni << "Augustana University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "35,914";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.0) && (major == 9 || major == 6 || major == 3 || major == 4 || major == 2 || major == 5 || major == 10) && (imp == 3))
+		{
+			cout << uni << "University of South Dakota" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "12,942";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+
+		}
+		else if ((gpa >= 2.6) && (major == 9 || major == 10 || major == 7 || major == 0 || major == 6 || major == 5 || major == 1) && (imp == 3))
+		{
+			cout << uni << "South Dakota State University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "12,809";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case TN:
+		if ((gpa >= 3.83) && (major == 10 || major == 5 || major == 7 || major == 9 || major == 4 || major == 2 || major == 8 || major == 1) && (imp == 0 || imp == 2 || imp == 4 || imp == 5))
+		{
+			cout << uni << "Vanderbilt University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "56,966";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.8) && (major == 10 || major == 3 || major == 7 || major == 9 || major == 5 || major == 1 || major == 4 || major == 0 || major == 8) && (imp == 2 || imp == 4))
+		{
+			cout << uni << "University of Tennessee, Knoxville" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "31,664";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.92) && (major == 3 || major == 9 || major == 10 || major == 5 || major == 4 || major == 8) && (imp == 2))
+		{
+			cout << uni << "Rhodes College" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "50,910";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case TX:
+		if ((gpa >= 3.00) && (major == 5 || major == 3 || major == 10 || major == 7 || major == 2 || major == 1 || major == 2 || major == 8) && (imp == 0 || imp == 2 || imp == 4 || imp == 5))
+		{
+			cout << uni << "Rice University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "52,895";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3) && (major == 9 || major == 5 || major == 7 || major == 4 || major == 10 || major == 2 || major == 8) && (imp == 2 || imp == 3 || imp == 4))
+		{
+			cout << uni << "University of Texas at Austin" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "40,996";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3) && (major == 5 || major == 9 || major == 10 || major == 2 || major == 3 || major == 7 || major == 4) && (imp == 2 || imp == 3 || imp == 5))
+		{
+			cout << uni << "University of Texas at Dallas" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "39,776";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case UT:
+		if ((gpa >= 3.64) && (major == 10 || major == 4 || major == 3 || major == 9 || major == 5 || major == 7 || major == 2 || major == 6) && (imp == 2 || imp == 3))
+		{
+			cout << uni << "University of Utah" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "28,345";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.86) && (major == 0 || major == 8 || major == 10 || major == 7 || major == 3 || major == 5 || major == 4 || major == 2) && (imp == 3 || imp == 4))
+		{
+			cout << uni << "Brigham Young University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "6,120";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.8) && (major == 3 || major == 4 || major == 10 || major == 6 || major == 4 || major == 7 || major == 2 || major == 0 || major == 9 || major == 5) && (imp == 0 || imp == 3))
+		{
+			cout << uni << "Utah State University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "24,080";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case VT:
+		if ((gpa >= 3.66) && (major == 3 || major == 10 || major == 9 || major == 5 || major == 7 || major == 6 || major == 2 || major == 4 || major == 8) && (imp == 3))
+		{
+			cout << uni << "University of Vermont" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "43,890";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 4) && (major == 3 || major == 9 || major == 5 || major == 10 || major == 2 || major == 1 || major == 6 || major == 8) && (imp == 1))
+		{
+			cout << uni << "Middlebury College" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "59,770";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.81) && (major == 2 || major == 10 || major == 1 || major == 5 || major == 6 || major == 4 || major == 3) && (imp == 1))
+		{
+			cout << uni << "Bennington College " << endl;
+			if (tuition == 'Y')
+				cout << tuit << "59,638";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case VA:
+		if ((gpa >= 3.00) && (major == 5 || major == 10 || major == 3 || major == 2 || major == 7 || major == 1 || major == 8) && (imp == 0 || imp == 2 || imp == 3 || imp == 4))
+		{
+			cout << uni << "University of Virginia" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "53,626 ";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.96) && (major == 3 || major == 10 || major == 9 || major == 5 || major == 2 || major == 8 || major == 7) && (imp == 2))
+		{
+			cout << uni << "Washington and Lee" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "59,380";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 4) && (major == 7 || major == 9 || major == 5 || major == 10 || major == 3 || major == 2 || major == 0 || major == 8 || major == 1) && (imp == 0 || imp == 2 || imp == 3 || imp == 4))
+		{
+			cout << uni << "Virginia Polytechnic Institute and State University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "33,857";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case WA:
+		if ((gpa >= 3.8) && (major == 10 || major == 5 || major == 4 || major == 9 || major == 3 || major == 7 || major == 6 || major == 2 || major == 1 || major == 8) && (imp == 0 || imp == 2 || imp == 3 || imp == 4 || imp == 5))
+		{
+			cout << uni << "University of Washington" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "39,906";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.2) && (major == 3 || major == 10 || major == 9 || major == 4 || major == 5 || major == 7 || major == 8 || major == 2 || major == 6) && (imp == 2))
+		{
+			cout << uni << "Gonzaga University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "48,470";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3.75) && (major == 3 || major == 9 || major == 10 || major == 3 || major == 5 || major == 2 || major == 4 || major == 8) && (imp == 1))
+		{
+			cout << uni << "Whitman College" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "55,982 ";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case WV:
+		if ((gpa >= 3.47) && (major == 3 || major == 7 || major == 9 || major == 10 || major == 2 || major == 0 || major == 6) && (imp == 2 || imp == 3 || imp == 4))
+		{
+			cout << uni << "West Virginia University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "25,320";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.0) && (major == 10 || major == 9 || major == 6 || major == 3 || major == 5 || major == 2 || major == 7) && (imp == 3))
+		{
+			cout << uni << "Marshall University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "19,606";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.5) && (major == 2 || major == 9 || major == 3 || major == 10 || major == 4 || major == 6) && (imp == 1))
+		{
+			cout << uni << "University of Charleston" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "31,350";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case WI:
+		if ((gpa >= 3.5) && (major == 5 || major == 3 || major == 10 || major == 9 || major == 4 || major == 7 || major == 0 || major == 2 || major == 8) && (imp == 0 || imp == 2 || imp == 3 || imp == 4))
+		{
+			cout << uni << "University of Wisconsin-Madison" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "38,608";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 2.75) && (major == 9 || major == 3 || major == 7 || major == 5 || major == 6 || major == 4) && (imp == 1))
+		{
+			cout << uni << "Marquette University" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "45,766";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else if ((gpa >= 3) && (major == 7 || major == 9 || major == 5 || major == 1) && (imp == 1 || imp == 2))
+		{
+			cout << uni << "Milwaukee School of Engineering" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "45,099";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThe Program Could Not Determine The Proper Fit for You.";
+		break;
+	case WY:
+		if ((gpa >= 2.5) && (major == 3 || major == 4 || major == 6 || major == 9) && (imp == 3 || imp == 1 || imp == 2))
+		{
+			cout << uni << "University of Wyoming" << endl;
+			if (tuition == 'Y')
+				cout << tuit << "20,827";
+			else if (tuition == 'N')
+				cout << ntuit;
+			else
+				cout << "Invalid Input";
+		}
+		else
+			cout << "\nThere are no other Universities in the state of Wyoming. ";
+		break;
+	default: cout << "That is not an option";
+	}
+	}
+
+	cout << endl;
+	cout << "\nThank You For Using My University Search Program!" << endl;
+}
+
+
+void intro() {
+	cout << "Hello! Welcome to the University Program!\n";
+	cout << "Which state would you like to attend University in? " << endl;
+
+	cout << left << setw(25) << "Alabama = 0 " << left << setw(25) << "Alaska = 1 " << left << setw(25) << "Arizona = 2 " << left << setw(25) << "Arkansas = 3 " << left << setw(25) << "California = 4 " << endl;
+	cout << left << setw(25) << "Colorado = 5 " << left << setw(25) << "Connecticut = 6 " << left << setw(25) << "Delaware = 7 " << left << setw(25) << "Florida = 8 " << left << setw(25) << "Georgia = 9 " << endl;
+	cout << left << setw(25) << "Hawaii = 10 " << left << setw(25) << "Idaho = 11 " << left << setw(25) << "Illinois = 12 " << left << setw(25) << "Indiana = 13 " << left << setw(25) << "Iowa = 14" << endl;
+	cout << left << setw(25) << "Kansas = 15 " << left << setw(25) << "Kentucky = 16 " << left << setw(25) << "Louisiana = 17 " << left << setw(25) << "Maine = 18" << left << setw(25) << "Maryland = 19 " << endl;
+	cout << left << setw(25) << "Massachusetts = 20 " << left << setw(25) << "Michigan = 21" << left << setw(25) << "Minnesota = 22 " << left << setw(25) << "Mississippi = 23 " << left << setw(25) << "Missouri = 24 " << endl;
+	cout << left << setw(25) << "Montana = 25 " << left << setw(25) << "Nebraska = 26 " << left << setw(25) << "Nevada = 27 " << left << setw(25) << "New Hampshire = 28 " << left << setw(25) << "New Jersey = 29 " << endl;
+	cout << left << setw(25) << "New Mexico = 30 " << left << setw(25) << "New York = 31 " << left << setw(25) << "North Carolina = 32 " << left << setw(25) << "North Dakota = 33 " << left << setw(25) << "Ohio = 34 " << endl;
+	cout << left << setw(25) << "Oklahoma = 35 " << left << setw(25) << "Oregon = 36 " << left << setw(25) << "Pennsylvania = 37 " << left << setw(25) << "Rhode Island = 38 " << left << setw(25) << "South Carolina = 39 " << endl;
+	cout << left << setw(25) << "South Dakota = 40 " << left << setw(25) << "Tennessee = 41 " << left << setw(25) << "Texas = 42 " << left << setw(25) << "Utah = 43 " << left << setw(25) << "Vermont = 44 " << endl;
+	cout << left << setw(25) << "Virginia = 45 " << left << setw(25) << "Washington = 46 " << left << setw(25) << "West Virginia = 47 " << left << setw(25) << "Wisconsin = 48 " << left << setw(25) << "Wyoming = 49 " << endl;
+	cout << "Please enter a number: ";
+}
+void choose_important() {
+	cout << endl;
+	cout << "What do you prioritize most in a University?" << endl;
+	cout << left << setw(20) << "Campus = 0" << left << setw(20) << "Class Size = 1" << left << setw(20) << "Professors = 2" << endl << left << setw(20) << "Cheap Tuition = 3" << left << setw(20) << "Campus Life = 4" << left << setw(20) << " Diversity = 5" << endl;
+	cout << "Please Enter a Number: ";
+}
+
+void choose_major() {
+	cout << endl;
+	cout << "What would you like to major in?" << endl;
+	cout << left << setw(30) << "Agriculture = 0" << left << setw(30) << "Architecure = 1" << left << setw(30) << "Arts = 2" << endl;
+	cout << left << setw(30) << "Business = 3" << left << setw(30) << "Communications = 4" << left << setw(30) << "Computer Science = 5" << endl;
+	cout << left << setw(30) << "Education = 6" << left << setw(30) << "Engineering = 7" << left << setw(30) << "Religion = 8" << endl;
+	cout << left << setw(30) << "Science = 9" << left << setw(30) << "Social Science = 10" << endl;
+	cout << "Please Enter a Number: ";
+}
